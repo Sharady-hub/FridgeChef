@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FridgeChef</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground flex flex-col items-center justify-start min-h-screen py-4">
+  <h1 class="text-2xl font-bold mb-4">FridgeChef</h1>
+  <div class="w-full max-w-2xl p-4 space-y-4">
+    <div class="card">
+      <h2 class="text-xl font-semibold">Ingredients</h2>
+      <p class="text-sm text-muted-foreground">Enter the ingredients you have:</p>
+      <label for="ingredients" class="block text-sm font-medium">Ingredients (comma-separated)</label>
+      <input id="ingredients" class="w-full p-2 border rounded" placeholder="e.g., chicken, rice, vegetables" oninput="updateIngredients(this.value)">
+      <label for="dietary" class="block text-sm font-medium mt-2">Dietary Restrictions (optional)</label>
+      <input id="dietary" class="w-full p-2 border rounded" placeholder="e.g., vegetarian, gluten-free" oninput="updateDietary(this.value)">
+      <button onclick="generateRecipe()" class="mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-primary/90">Generate Recipe</button>
+    </div>
+    <div id="recipeOutput" class="card hidden">
+      <h2 class="text-xl font-semibold"></h2>
+      <p class="text-sm text-muted-foreground">Here is your recipe:</p>
+      <div class="grid gap-2">
+        <label class="block text-sm font-medium">Ingredients</label>
+        <ul id="recipeIngredients" class="list-disc pl-5"></ul>
+      </div>
+      <div class="grid gap-2 mt-2">
+        <label class="block text-sm font-medium">Instructions</label>
+        <textarea id="recipeInstructions" class="w-full p-2 border rounded min-h-[100px] resize-none" readonly></textarea>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
